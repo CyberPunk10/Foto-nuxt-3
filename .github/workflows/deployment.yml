@@ -51,6 +51,4 @@ jobs:
       - name: Build application
         run: yarn run build
       - name: Deploy application
-        run: |
-          echo Deploying ...
-          yarn preview
+        run: echo Deploying ...
