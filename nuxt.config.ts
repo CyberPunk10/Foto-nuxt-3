@@ -5,5 +5,7 @@ export default defineNuxtConfig({
     shim: false
   },
   // https://nitro.unjs.io/config
-  nitro: {}
+  nitro: {
+    preset: 'node-server',
+  }
 })
