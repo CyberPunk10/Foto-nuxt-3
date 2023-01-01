@@ -3,5 +3,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   typescript: {
     shim: false
-  }
+  },
+  // https://nitro.unjs.io/config
+  nitro: {}
 })
