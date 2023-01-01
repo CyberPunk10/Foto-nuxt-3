@@ -51,4 +51,7 @@ jobs:
       - name: Build application
         run: yarn run build
       - name: Deploy application
-        run: echo Deploying ...
+        run: |
+          echo Deploying ...
+          node .output/server/index.mjs
+
