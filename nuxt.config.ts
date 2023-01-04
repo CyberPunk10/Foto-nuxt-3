@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxtjs/color-mode',
+    '@nuxtjs/tailwindcss',
+  ],
   typescript: {
     shim: false
   },
@@ -8,4 +11,15 @@ export default defineNuxtConfig({
   // nitro: {
   //   preset: 'node-server',
   // }
+  // tailwindcss: {
+  //   cssPath: '~/assets/css/tailwind.css',
+  //   configPath: 'tailwind.config.js',
+  //   exposeConfig: false,
+  //   // config: {},
+  //   injectPosition: 0,
+  //   viewer: true,
+  // },
+  // colorMode: {
+  //   classSuffix: '',
+  // },
 })

@@ -10,6 +10,7 @@
     "lint": "yarn lint:js"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/tailwindcss": "^6.2.0",
     "eslint": "^8.30.0",
