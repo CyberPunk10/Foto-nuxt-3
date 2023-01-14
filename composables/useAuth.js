@@ -1,6 +1,9 @@
+import jwt_decode from "jwt-decode";
+
 export default () => {
   const useAuthToken = () => useState('auth_token');
   const useAuthUser = () => useState('auth_user');
+  const useAuthLoading = () => useState('auth_loading', () => true);
 
   const setToken = (newToken) => {
     const authToken = useAuthToken();
@@ -10,6 +13,11 @@ export default () => {
   const setUser = (newUser) => {
     const authUser = useAuthUser();
     authUser.value = newUser;
+  };
+
+  const setIsAuthLoading = (value) => {
+    const authLoading = useAuthLoading();
+    authLoading.value = value;
   };
 
   const login = ({ username, password }) => {
@@ -43,10 +51,11 @@ export default () => {
     });
   }
 
-  const initAuth = () => {
+  const getUser = () => {
     return new Promise(async (resolve, reject) => {
       try {
-        await refreshToken();
+        const data = await useFetchApi('/api/auth/user');
+        setUser(data.user);
         resolve(true);
       } catch (error) {
         reject(error);
@@ -54,5 +63,48 @@ export default () => {
     });
   }
 
-  return { login, useAuthUser, initAuth };
+  const reRefreshAccessToken = () => {
+    const authToken = useAuthToken().value;
+
+    if (!authToken) {
+      return;
+    }
+
+    const jwt = jwt_decode(authToken);
+
+    const newRefreshTime = jwt.exp - 6000; // за 1 минуту до истечения токена
+
+    setTimeout(async () => {
+      await refreshToken();
+      reRefreshAccessToken();
+    }, newRefreshTime);
+
+    return;
+  };
+
+  const initAuth = () => {
+    return new Promise(async (resolve, reject) => {
+      setIsAuthLoading(true);
+      try {
+        await refreshToken();
+        await getUser();
+
+        reRefreshAccessToken();
+
+        resolve(true);
+      } catch (error) {
+        reject(error);
+      } finally {
+        setIsAuthLoading(false);
+      }
+    });
+  }
+
+  return {
+    initAuth,
+    login,
+    useAuthLoading,
+    useAuthToken,
+    useAuthUser,
+  };
 }

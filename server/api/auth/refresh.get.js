@@ -1,4 +1,3 @@
-import { sendError } from 'h3';
 import { getRefreshTokenByToken } from '../../db/refreshToken';
 import { decodeRefreshToken, generateTokens } from '../../utils/jwt';
 import { getUserById } from '../../db/users';
