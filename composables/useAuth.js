@@ -1,3 +1,4 @@
+/* eslint-disable no-async-promise-executor */ // TODO: no-async-promise-executor
 // eslint-disable-next-line camelcase
 import jwt_decode from 'jwt-decode';
 

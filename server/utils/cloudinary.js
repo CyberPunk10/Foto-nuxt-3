@@ -1,3 +1,5 @@
+// TODO: вероятно импорт устарвеший
+// eslint-disable-next-line import/named
 import { v2 as _cloudinary } from 'cloudinary';
 
 const cloudinary = () => {

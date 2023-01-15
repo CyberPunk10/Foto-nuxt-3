@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-import AuthForm from '~~/components/Auth/AuthForm.vue';
+import AuthForm from '~~/components/auth/AuthForm.vue';
 import TweetForm from '~~/components/tweet/form/TweetForm.vue';
 
 const { posts } = await $fetch('/api/posts');
