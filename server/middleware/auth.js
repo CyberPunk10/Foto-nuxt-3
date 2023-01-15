@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
     return sendError(event, createError({
       statusCode: 401,
       statusMessage: 'Unauhthorized',
-    }))
+    }));
   }
 
   try {
@@ -34,6 +34,6 @@ export default defineEventHandler(async (event) => {
     const user = await getUserById(userId);
     event.context.auth = { user };
   } catch (error) {
-    return;
+    console.log('[ error ]: ', error);
   }
-})
+});

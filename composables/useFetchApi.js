@@ -6,6 +6,6 @@ export default (url, options = {}) => {
     headers: {
       ...options.headers,
       Authorization: `Bearer ${useAuthToken().value}`,
-    }
-  })
-}
+    },
+  });
+};

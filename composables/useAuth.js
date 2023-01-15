@@ -1,4 +1,5 @@
-import jwt_decode from "jwt-decode";
+// eslint-disable-next-line camelcase
+import jwt_decode from 'jwt-decode';
 
 export default () => {
   const useAuthToken = () => useState('auth_token');
@@ -49,7 +50,7 @@ export default () => {
         reject(error);
       }
     });
-  }
+  };
 
   const getUser = () => {
     return new Promise(async (resolve, reject) => {
@@ -61,7 +62,7 @@ export default () => {
         reject(error);
       }
     });
-  }
+  };
 
   const reRefreshAccessToken = () => {
     const authToken = useAuthToken().value;
@@ -78,8 +79,6 @@ export default () => {
       await refreshToken();
       reRefreshAccessToken();
     }, newRefreshTime);
-
-    return;
   };
 
   const initAuth = () => {
@@ -98,7 +97,7 @@ export default () => {
         setIsAuthLoading(false);
       }
     });
-  }
+  };
 
   return {
     initAuth,
@@ -107,4 +106,4 @@ export default () => {
     useAuthToken,
     useAuthUser,
   };
-}
+};

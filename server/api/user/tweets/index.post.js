@@ -3,16 +3,17 @@ import { uploadToCloudinary } from '~~/server/utils/cloudinary';
 import { createTweet } from '~~/server/db/tweets';
 import { createMediaFile } from '~~/server/db/mediaFiles';
 import { tweetTransformer } from '~~/server/transformers/tweet';
+
 export default defineEventHandler(async (event) => {
   const form = formidable({});
 
   const response = await new Promise((resolve, reject) => {
-    form.parse(event.req, (err, fields, files) => { // TODO: .req
+    form.parse(event.node.req, (err, fields, files) => {
       if (err) {
         reject(err);
       }
       resolve({ fields, files });
-    })
+    });
   });
 
   const { fields, files } = response;
@@ -36,12 +37,12 @@ export default defineEventHandler(async (event) => {
       providerPublicId: cloudinaryResourse.public_id,
       userId,
       tweetId: tweet.id,
-    })
+    });
   });
 
   await Promise.all(filePromises);
 
   return {
     tweet: tweetTransformer(tweet),
-  }
+  };
 });

@@ -1,12 +1,12 @@
 <template>
   <div class="h-screen">
-    <Navbar />
-    <slot/>
+    <LayoutNavbar />
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import Navbar from '~/components/layout/Navbar.vue';
+import LayoutNavbar from '~~/components/layout/LayoutNavbar.vue';
 
 </script>
 

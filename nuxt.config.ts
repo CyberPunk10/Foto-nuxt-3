@@ -1,10 +1,15 @@
+import eslintPlugin from 'vite-plugin-eslint';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    ['@nuxtjs/color-mode', {
-      preference: 'light',
-      classPrefix: '--',
-    }],
+    [
+      '@nuxtjs/color-mode',
+      {
+        preference: 'light',
+        classPrefix: '--',
+      },
+    ],
     '@nuxtjs/tailwindcss',
   ],
   /*
@@ -22,7 +27,10 @@ export default defineNuxtConfig({
     cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
   },
   typescript: {
-    shim: false
+    shim: false,
+  },
+  vite: {
+    plugins: [eslintPlugin()],
   },
   // https://nitro.unjs.io/config
   // nitro: {
@@ -39,4 +47,4 @@ export default defineNuxtConfig({
   // colorMode: {
   //   classSuffix: '',
   // },
-})
+});

@@ -19,5 +19,5 @@ export default defineEventHandler((event) => {
 
   const id = event.context.params.id; // /posts/1
 
-  return posts.find(p => p.id === parseInt(id));
-})
+  return posts.find((p) => p.id === parseInt(id));
+});

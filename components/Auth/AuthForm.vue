@@ -14,20 +14,22 @@
       />
 
       <div>
-        <button @click="handleLogin">Login</button>
+        <button @click="handleLogin">
+          Login
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import UIInput from '~/components/UI/Input.vue';
+import UIInput from '~~/components/UI/UIInput.vue';
 
 const data = reactive({
   username: '',
   password: '',
   loading: false,
-})
+});
 
 async function handleLogin() {
   data.loading = true;
@@ -36,7 +38,7 @@ async function handleLogin() {
     await login({
       username: data.username,
       password: data.password,
-    })
+    });
   } catch (error) {
     console.log('[ error ]: ', error);
   } finally {

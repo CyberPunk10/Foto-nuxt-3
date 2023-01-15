@@ -9,14 +9,21 @@
             aria-expanded="false"
           >
             <span class="sr-only">Open menu</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
 
         <nav class="hidden md:flex space-x-10">
-          <nuxt-link to="/subscribe">
+          <!-- <nuxt-link to="/subscribe">
             <span class="text-base font-medium text-gray-500 hover:text-gray-900">
               Premium Membership
             </span>
@@ -40,7 +47,7 @@
             <span class="text-base font-medium text-gray-500 hover:text-gray-900">
               Dashboard
             </span>
-          </nuxt-link>
+          </nuxt-link> -->
         </nav>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
           <!-- <nuxt-link v-if="!user" to="/login"
@@ -49,7 +56,6 @@
           </nuxt-link>
 
           <User v-if="user" :user="user"/>
-
 
           <nuxt-link v-if="!user" to="/register"
                      class="transition duration-500 hover:scale-110 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
@@ -60,7 +66,12 @@
             <img class="h-8 w-auto sm:h-10" src="~/public/img/github-logo.png" />
           </a> -->
         </div>
-        <button class="hidden md:block" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
+        <button
+          class="hidden md:block"
+          @click="
+            setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')
+          "
+        >
           <svg
             v-if="$colorMode.value == 'dark'"
             xmlns="http://www.w3.org/2000/svg"
@@ -68,9 +79,7 @@
             viewBox="0 0 20 20"
             fill="currentColor"
           >
-            <path
-              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-            />
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
           </svg>
           <svg
             v-if="$colorMode.value == 'light'"
@@ -87,7 +96,7 @@
           </svg>
         </button>
       </div>
-      <BackButton/>
+      <BackButton />
     </div>
   </div>
 </template>
@@ -99,6 +108,6 @@ import BackButton from '~/components/elements/BackButton.vue';
 // const user = useState('user')
 // const setColorTheme = (theme: String) => console.log(theme);
 const setColorTheme = (newTheme: Theme) => {
-  useColorMode().preference = newTheme
-}
+  useColorMode().preference = newTheme;
+};
 </script>

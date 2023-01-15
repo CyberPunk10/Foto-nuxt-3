@@ -1,7 +1,10 @@
 <template>
   <div>
     <NuxtLayout>
-      <LoadingPage v-if="isAuthLoading"/>
+      <client-only>
+        <LoadingPage v-if="isAuthLoading" />
+      </client-only>
+
       <NuxtPage />
     </NuxtLayout>
   </div>

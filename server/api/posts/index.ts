@@ -1,5 +1,5 @@
 import posts from '../../../data/posts.json';
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(() => {
   return { posts };
-})
+});

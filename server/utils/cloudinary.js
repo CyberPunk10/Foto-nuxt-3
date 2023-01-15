@@ -7,10 +7,10 @@ const cloudinary = () => {
     cloud_name: config.cloudinaryCloudName,
     api_key: config.cloudinaryApiKey,
     api_secret: config.cloudinaryApiSecret,
-  })
+  });
 
   return _cloudinary;
-}
+};
 
 export const uploadToCloudinary = (image) => {
   return new Promise((resolve, reject) => {
@@ -19,6 +19,6 @@ export const uploadToCloudinary = (image) => {
         reject(error);
       }
       resolve(data);
-    })
+    });
   });
-}
+};

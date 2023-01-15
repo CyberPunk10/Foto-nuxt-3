@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     return sendError(event, createError({
       statusCode: 401,
       statusMessage: 'Refresh token is invalid',
-    }))
+    }));
   }
 
   const rToken = await getRefreshTokenByToken(refreshToken);
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     return sendError(event, createError({
       statusCode: 401,
       statusMessage: 'Refresh token is invalid',
-    }))
+    }));
   }
 
   const token = decodeRefreshToken(refreshToken);
@@ -33,6 +33,6 @@ export default defineEventHandler(async (event) => {
     return sendError(event, createError({
       statusCode: 500,
       statusMessage: 'Something went wrong',
-    }))
+    }));
   }
-})
+});

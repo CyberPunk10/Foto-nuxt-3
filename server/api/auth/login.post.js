@@ -9,11 +9,11 @@ export default defineEventHandler(async (event) => {
 
   const { username, password } = body;
 
-  if (!username ||!password) {
+  if (!username || !password) {
     return sendError(event, createError({
       statusCode: 400,
       statusMessage: 'Invalid params',
-    }))
+    }));
   }
 
   // Is the user registerd
@@ -45,13 +45,13 @@ export default defineEventHandler(async (event) => {
   await createRefreshToken({
     token: refreshToken,
     userId: user.id,
-  })
+  });
 
   // Add http only coockie
-  sendRefreshToken(event, refreshToken)
+  sendRefreshToken(event, refreshToken);
 
   return {
     access_token: accessToken,
     user: userTransformer(user),
   };
-})
+});
