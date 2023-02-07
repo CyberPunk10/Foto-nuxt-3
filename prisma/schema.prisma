@@ -55,9 +55,9 @@ model Tweet {
   author   User @relation(fields: [authorId], references: [id])
   authorId Int
 
-  replayToId Int?
-  replayTo   Tweet?  @relation("replies", fields: [replayToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  replies    Tweet[] @relation("replies")
+  replyToId Int?
+  replyTo   Tweet?  @relation("replies", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies   Tweet[] @relation("replies")
 
   // MediaFile
   mediaFiles MediaFile[]
