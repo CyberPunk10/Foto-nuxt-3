@@ -13,33 +13,33 @@
 </template>
 
 <script setup>
-import TweetFormInput from './TweetFormInput.vue';
-import UISpinner from './../../UI/UISpinner.vue';
-import useTweets from '~~/composables/useTweets';
+import useTweets from '~~/composables/useTweets'
+import TweetFormInput from './TweetFormInput.vue'
+import UISpinner from '../../UI/UISpinner.vue'
 
-const { postTweet } = useTweets();
+const { postTweet } = useTweets()
 
 const props = defineProps({
   user: {
     type: Object,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 
-const loading = ref(false);
+const loading = ref(false)
 
 async function handlerFormSubmit(data) {
-  loading.value = true;
+  loading.value = true
   try {
     const response = await postTweet({
       text: data.text,
-      mediaFiles: data.mediaFiles,
-    });
-    console.log('[ response ]: ', response); // TODO:
+      mediaFiles: data.mediaFiles
+    })
+    console.log('[ response ]: ', response) // TODO:
   } catch (error) {
-    console.log('[ error ]: ', error);
+    console.log('[ error ]: ', error)
   } finally {
-    loading.value = false;
+    loading.value = false
   }
 }
 </script>

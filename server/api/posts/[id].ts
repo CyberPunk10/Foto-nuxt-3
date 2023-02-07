@@ -1,4 +1,4 @@
-import posts from '../../../data/posts.json';
+import posts from '../../../data/posts.json'
 // import { IncomingMessage, ServerResponse } from 'http';
 // import { H3Event, RequestHeaders } from 'h3';
 
@@ -17,7 +17,7 @@ export default defineEventHandler((event) => {
   // const getHeaders: (event: H3Event) => RequestHeaders;
   // console.log('[ getHeaders ]: ', getHeaders);
 
-  const id = event.context.params.id; // /posts/1
+  const { id } = event.context.params // /posts/1
 
-  return posts.find((p) => p.id === parseInt(id));
-});
+  return posts.find((p) => p.id === parseInt(id, 10))
+})

@@ -51,14 +51,14 @@
         </nav>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
           <!-- <nuxt-link v-if="!user" to="/login"
-                     class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign
+            class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign
             in
           </nuxt-link>
 
           <User v-if="user" :user="user"/>
 
           <nuxt-link v-if="!user" to="/register"
-                     class="transition duration-500 hover:scale-110 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+            class="transition duration-500 hover:scale-110 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
             Sign up
           </nuxt-link> -->
 
@@ -68,6 +68,7 @@
         </div>
         <button
           class="hidden md:block"
+          type="button"
           @click="
             setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')
           "
@@ -102,12 +103,12 @@
 </template>
 
 <script setup lang="ts">
-import BackButton from '~/components/elements/BackButton.vue';
+import BackButton from '~/components/elements/BackButton.vue'
 // import {useState} from "#app";
 
 // const user = useState('user')
 // const setColorTheme = (theme: String) => console.log(theme);
 const setColorTheme = (newTheme: Theme) => {
-  useColorMode().preference = newTheme;
-};
+  useColorMode().preference = newTheme
+}
 </script>

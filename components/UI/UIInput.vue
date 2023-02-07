@@ -17,23 +17,23 @@
 </template>
 
 <script setup>
-const emits = defineEmits(['update:modelValue']);
+const emits = defineEmits(['update:modelValue'])
 const props = defineProps({
   modelValue: {
     type: String,
-    required: true,
+    required: true
   },
   label: {
     type: String,
-    default: null,
+    default: null
   },
   placeholder: {
     type: String,
-    default: '',
+    default: ''
   },
   type: {
     type: String,
-    default: 'text',
-  },
-});
+    default: 'text'
+  }
+})
 </script>

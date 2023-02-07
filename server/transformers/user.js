@@ -4,6 +4,6 @@ export const userTransformer = (user) => {
     name: user.name,
     email: user.email,
     username: user.username,
-    profileImage: user.profileImage,
-  };
-};
+    profileImage: user.profileImage
+  }
+}

@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-const time = await $fetch('/api/now');
+const time = await $fetch('/api/now')
 </script>

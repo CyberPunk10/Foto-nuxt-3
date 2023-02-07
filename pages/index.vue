@@ -1,4 +1,8 @@
 <template>
+  <!--
+    TODO: разобраться как подгружать иконки
+    TODO: добавить $i18n
+  -->
   <div class="bg-gray-50 min-h-screen">
     <div class="flex h-screen">
       <div class="relative flex-1 w-0 lg:block">
@@ -35,10 +39,10 @@
 </template>
 
 <script setup>
-import AuthForm from '~~/components/auth/AuthForm.vue';
-import TweetForm from '~~/components/tweet/form/TweetForm.vue';
+import AuthForm from '~~/components/auth/AuthForm.vue'
+import TweetForm from '~~/components/tweet/form/TweetForm.vue'
 
-const { posts } = await $fetch('/api/posts');
-const { useAuthUser } = useAuth();
-const user = useAuthUser();
+const { posts } = await $fetch('/api/posts')
+const { useAuthUser } = useAuth()
+const user = useAuthUser()
 </script>

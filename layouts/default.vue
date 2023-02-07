@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import LayoutNavbar from '~~/components/layout/LayoutNavbar.vue';
+import LayoutNavbar from '~~/components/layout/LayoutNavbar.vue'
 
 </script>
 

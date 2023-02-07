@@ -1,1 +1,1 @@
-export default () => 'Hello Nitro!';
+export default () => 'Hello Nitro!'

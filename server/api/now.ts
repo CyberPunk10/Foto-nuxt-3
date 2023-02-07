@@ -2,5 +2,5 @@
 
 // export default (req: IncomingMessage, res: ServerResponse) => {
 export default () => {
-  return new Date().toLocaleTimeString();
-};
+  return new Date().toLocaleTimeString()
+}

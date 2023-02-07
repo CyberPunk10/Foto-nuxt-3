@@ -159,48 +159,49 @@
 </template>
 
 <script setup>
-import UIButton from '~~/components/UI/UIButton.vue';
+import UIButton from '~~/components/UI/UIButton.vue'
 
 const props = defineProps({
   user: {
     type: Object,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 
-const emits = defineEmits(['onSubmit']);
+const emits = defineEmits(['onSubmit'])
 
-const imageInput = ref();
-const selectedFile = ref(null);
-const inputImageUrl = ref(null);
-const text = ref('');
-const isDisabled = computed(() => text.value === '');
+const imageInput = ref()
+const selectedFile = ref(null)
+const inputImageUrl = ref(null)
+const text = ref('')
+const isDisabled = computed(() => text.value === '')
 
 function handlerFormSubmit() {
   emits('onSubmit', {
     text: text.value,
-    mediaFiles: [selectedFile.value],
-  });
+    mediaFiles: [selectedFile.value]
+  })
 }
 
 function handleImageClick() {
-  imageInput.value.click();
+  imageInput.value.click()
 }
 
 function handleImageChange(event) {
-  const file = event.target.files[0];
+  const file = event.target.files[0]
 
-  selectedFile.value = file;
+  selectedFile.value = file
 
-  const reader = new FileReader();
+  const reader = new FileReader()
 
-  reader.onload = (event) => {
-    console.log('[ event.target.result ]: ', event.target.result);
-    console.log('[ event.target ]: ', event.target);
-    inputImageUrl.value = event.target.result;
-  };
+  // TODO: dublicate event
+  reader.onload = (event2) => {
+    console.log('[ event.target.result ]: ', event2.target.result)
+    console.log('[ event.target ]: ', event2.target)
+    inputImageUrl.value = event.target.result
+  }
 
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(file)
 }
 </script>
 
