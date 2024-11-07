@@ -1,5 +1,3 @@
-import eslintPlugin from 'vite-plugin-eslint';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -7,10 +5,11 @@ export default defineNuxtConfig({
       '@nuxtjs/color-mode',
       {
         preference: 'light',
-        classPrefix: '--',
-      },
+        classPrefix: '--'
+      }
     ],
     '@nuxtjs/tailwindcss',
+    '@nuxt/eslint',
   ],
   /*
    ** Auto import components
@@ -24,13 +23,10 @@ export default defineNuxtConfig({
     // Cloudinary
     cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
     cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
-    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
+    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET
   },
   typescript: {
-    shim: false,
-  },
-  vite: {
-    plugins: [eslintPlugin()],
+    shim: false
   },
   // https://nitro.unjs.io/config
   // nitro: {
@@ -47,4 +43,5 @@ export default defineNuxtConfig({
   // colorMode: {
   //   classSuffix: '',
   // },
-});
+  compatibilityDate: '2024-11-07',
+})

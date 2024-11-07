@@ -108,7 +108,7 @@ import BackButton from '~/components/elements/BackButton.vue'
 
 // const user = useState('user')
 // const setColorTheme = (theme: String) => console.log(theme);
-const setColorTheme = (newTheme: Theme) => {
+const setColorTheme = (newTheme: string) => {
   useColorMode().preference = newTheme
 }
 </script>
