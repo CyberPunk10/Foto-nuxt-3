@@ -24,17 +24,28 @@
         </div>
       </div>
     </div>
+    <!-- TODO: убрать: || true -->
+    <fast-dev v-if="$config.appEnv === 'dev' || $config.appEnv === 'prod_qa' || true" />
   </div>
 </template>
 
 <script setup lang="ts">
+import FastDev from '~/components/dev/FastDev.vue';
 import SidebarLeft from '~~/components/Twitter/Sidebar/Left/index.vue'
 import SidebarRight from '~~/components/Twitter/Sidebar/Right/index.vue'
+
+useHead({
+  htmlAttrs: {
+    class: '--layout-twitter',
+  },
+});
 
 const colorMode = useColorMode();
 const darkMode = computed(() => colorMode.preference === 'dark')
 </script>
 
-<style lang="sass">
+<!-- <style lang="scss">
+html.--layout-twitter {
 
-</style>
+}
+</style> -->

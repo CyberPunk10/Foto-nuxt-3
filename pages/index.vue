@@ -7,7 +7,7 @@
     <div class="flex h-screen">
       <div class="relative flex-1 w-0 lg:block">
         <img
-        src="https://images.unsplash.com/photo-1598078412711-93b01b0fb206?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        src="https://images.unsplash.com/photo-1542931287-023b922fa89b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
         class="absolute inset-0 object-cover w-full h-full"
         >

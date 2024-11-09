@@ -1,7 +1,6 @@
 <template>
   <div>
     <NuxtLayout>
-      darkMode: {{ darkMode }}
       <client-only>
         <LoadingPage v-if="isAuthLoading" />
       </client-only>
@@ -20,7 +19,4 @@ const isAuthLoading = useAuthLoading()
 onBeforeMount(() => {
   initAuth()
 })
-
-const colorMode = useColorMode();
-const darkMode = computed(() => colorMode.preference === 'dark')
 </script>

@@ -6,3 +6,9 @@
     <NuxtWelcome />
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  layout: 'layout-navbar'
+})
+</script>

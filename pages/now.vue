@@ -9,4 +9,8 @@
 
 <script setup>
 const time = await $fetch('/api/now')
+
+definePageMeta({
+  layout: 'layout-navbar'
+})
 </script>
