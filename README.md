@@ -1,8 +1,10 @@
-Course: 
+Courses: 
 
-[Nuxt 3 tutorial part 1. Build a full stack app with Nuxt 3](https://youtu.be/A24aKCQ-rf4?si=rSxgfGMUT2BTJrWU) - за основу взят этот курс
+- [Nuxt 3 tutorial part 1. Build a full stack app with Nuxt 3](https://youtu.be/A24aKCQ-rf4?si=rSxgfGMUT2BTJrWU) - за основу взят этот курс
 
-[Build and Deploy a Full Stack Social Media App with Nuxt 3, TailwindCSS and Prisma | FULL COURSE](https://www.youtube.com/watch?app=desktop&v=_cM4j9_LfQk&t=5518s) - частично материал из этого курса
+- [Build and Deploy a Full Stack Social Media App with Nuxt 3, TailwindCSS and Prisma | FULL COURSE](https://www.youtube.com/watch?app=desktop&v=_cM4j9_LfQk&t=5518s) - частично материал из этого курса
+  - репозитрий из курса: https://github.com/hassnian/d-twitter-clone
+  - gist с assets (иконки и прочее): https://gist.github.com/hassnian/a8ef7f243dcc933887b31af77e73df29
 
 
 # Nuxt 3 Minimal Starter
