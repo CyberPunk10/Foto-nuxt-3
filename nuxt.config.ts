@@ -12,6 +12,17 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/content',
     '@pinia/nuxt',
+    // [
+    //   '@pinia/nuxt',
+    //   {
+    //     autoImports: [
+    //       // automatically imports `defineStore`
+    //       'defineStore', // import { defineStore } from 'pinia'
+    //       // automatically imports `defineStore` as `definePiniaStore`
+    //       ['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
+    //     ]
+    //   }
+    // ]
   ],
   /*
    ** Auto import components
@@ -31,7 +42,7 @@ export default defineNuxtConfig({
     // Cloudinary
     cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
     cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
-    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET
+    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
   },
   typescript: {
     shim: false
