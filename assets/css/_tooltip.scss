@@ -1,0 +1,67 @@
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+[data-tooltip]:focus {
+  box-shadow: inset 0 0 2px currentColor !important;
+  outline: none;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -9.5rem;
+  padding: var(--space-100) var(--space-150);
+  width: 19rem;
+  border-radius: var(--box-radius);
+  border: 1px solid var(--control-primary-minor-color);
+  background-color: var(--background);
+  color: var(--text-primary-color);
+  content: attr(data-tooltip);
+  text-align: center;
+  // @include body-medium-font();
+  transition: opacity 0.3s;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  top: calc(100% + .6rem);
+  left: 50%;
+  transform: translateY(-100%) rotate(45deg);
+  margin-left: -5px;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid var(--control-primary-minor-color);
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background-color: var(--background);
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
