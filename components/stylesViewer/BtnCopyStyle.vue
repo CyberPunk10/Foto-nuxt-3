@@ -28,6 +28,7 @@ const props = defineProps({
   },
   lightModeBtn: Boolean
 })
+
 const { copyText } = useCopyText()
 const stylesViewerStore = useStylesViewerStore()
 const isCopied = computed(() => stylesViewerStore.valueClipboard === props.textForClipboard)
