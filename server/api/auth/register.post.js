@@ -1,3 +1,4 @@
+import { sendError } from 'h3'
 import { createUser } from '../../db/users'
 import { userTransformer } from '../../transformers/user'
 

@@ -27,9 +27,9 @@ export default defineEventHandler(async (event) => {
   }
 
   // TODO: потом создать нормального тестового пользователя под которым можно будет удобно заходить,
-  // а пока если пользователь 'joe3' найден, то можно зайти с любым паролем длиннее 4 символов
+  // а пока если пользователь с username 'dev1' найден, то можно зайти с любым паролем длиннее 4 символов
   // (настоящий пароль в базе для него 'password')
-  const testUser = username === 'joi3' && password?.length >=4;
+  const testUser = username === 'dev1' && password?.length >=4;
 
   // Compare passwords
   const doesThePasswordMatch = await bcrypt.compare(password, user.password)
