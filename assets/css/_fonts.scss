@@ -1,0 +1,5 @@
+@use 'mixins/font-face' as *;
+
+@include font-face('SF Pro Display', 'SF_Pro_Display_Regular', 400);
+@include font-face('SF Pro Display', 'SF_Pro_Display_Medium', 500);
+@include font-face('SF Pro Display', 'SF_Pro_Display_Bold', 700);

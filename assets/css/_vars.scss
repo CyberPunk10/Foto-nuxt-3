@@ -1,0 +1,32 @@
+@use 'vars-fonts.scss';
+@use 'vars-colors.scss';
+
+:root {
+  --box-radius: .8rem;
+  --box-radius-big: 1.6rem;
+  --control-radius: 0.4rem;
+
+  --space-25: .2rem;
+  --space-50: .4rem;
+  --space-75: .6rem;
+  --space-100: .8rem;
+  --space-125: 1rem;
+  --space-150: 1.2rem;
+  --space-200: 1.6rem;
+  --space-250: 2rem;
+  --space-300: 2.4rem;
+  --space-350: 2.8rem;
+  --space-400: 3.2rem;
+  --space-450: 3.6rem;
+  --space-500: 4rem;
+  --space-550: 4.4rem;
+  --space-600: 4.8rem;
+  --space-650: 5.2rem;
+  --space-700: 5.6rem;
+  --space-750: 6rem;
+  --space-800: 6.4rem;
+  --space-850: 6.8rem;
+  --space-900: 7.2rem;
+  --space-950: 7.6rem;
+  --space-1000: 8rem;
+}

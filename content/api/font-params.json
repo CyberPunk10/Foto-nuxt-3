@@ -1,0 +1,47 @@
+{
+  "headingH1": {
+    "name": "heading-h1-font",
+    "params": [
+      "font-size: 72 px",
+      "line-height: 96 px",
+      "letter-spacing: 0 %",
+      "font-weight: medium"
+    ]
+  },
+  "headingH2": {
+    "name": "heading-h2-font",
+    "params": [
+      "font-size: 48 px",
+      "line-height: 64 px",
+      "letter-spacing: 1 %",
+      "font-weight: medium"
+    ]
+  },
+  "headingH3": {
+    "name": "heading-h3-font",
+    "params": [
+      "font-size: 32 px",
+      "line-height: 48 px",
+      "letter-spacing: 1,5 %",
+      "font-weight: regular"
+    ]
+  },
+  "headingH4": {
+    "name": "heading-h4-font",
+    "params": [
+      "font-size: 24 px",
+      "line-height: 36 px",
+      "letter-spacing: 1,5 %",
+      "font-weight: regular"
+    ]
+  },
+  "headingDisplay": {
+    "name": "heading-display-font",
+    "params": [
+      "font-size: 64 px",
+      "line-height: 72 px",
+      "letter-spacing: 0 %",
+      "font-weight: medium"
+    ]
+  }
+}

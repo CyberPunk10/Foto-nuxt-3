@@ -1,0 +1,38 @@
+:root {
+  /* fonts */
+  --desktop-heading-h1-font: normal 500 7.2rem/9.6rem 'SF Pro Display', sans-serif;
+  --desktop-heading-h2-font: normal 500 4.8rem/6.4rem 'SF Pro Display', sans-serif;
+  --desktop-heading-h3-font: normal 400 3.2rem/4.8rem 'SF Pro Display', sans-serif;
+  --desktop-heading-h4-font: normal 400 2.4rem/3.6rem 'SF Pro Display', sans-serif;
+  --desktop-heading-display-font: normal 500 6.4rem/7.2rem 'SF Pro Display', sans-serif;
+
+  --tablet-heading-h1-font: normal 500 6.4rem/7.2rem 'SF Pro Display', sans-serif;
+  --tablet-heading-h2-font: normal 500 4rem/4.8rem 'SF Pro Display', sans-serif;
+  --tablet-heading-h3-font: normal 400 2.8rem/3.6rem 'SF Pro Display', sans-serif;
+  --tablet-heading-h4-font: normal 400 2rem/2.8rem 'SF Pro Display', sans-serif;
+  --tablet-heading-display-font: normal 500 4.8rem/5.6rem 'SF Pro Display', sans-serif;
+
+  --mobile-heading-h1-font: normal 500 4.8rem/5.6rem 'SF Pro Display', sans-serif;
+  --mobile-heading-h2-font: normal 500 2.8rem/3.6rem 'SF Pro Display', sans-serif;
+  --mobile-heading-h3-font: normal 400 2.4rem/3.2rem 'SF Pro Display', sans-serif;
+  --mobile-heading-h4-font: normal 400 1.8rem/2.8rem 'SF Pro Display', sans-serif;
+  --mobile-heading-display-font: normal 500 4rem/4.8rem 'SF Pro Display', sans-serif;
+
+  --body-large-long-font: normal 400 2rem/2.8rem 'SF Pro Display', sans-serif;
+  --body-large-accent-font: normal 500 2rem/2.8rem 'SF Pro Display', sans-serif;  // не проверено
+  --body-large-short-font: normal 400 2rem/2.6rem 'SF Pro Display', sans-serif;  // не проверено
+  --body-large-subtitle-font: normal 500 2rem/2.6rem 'SF Pro Display', sans-serif;  // не проверено
+
+  --body-medium-long-font: normal 400 1.6rem/2.4rem 'SF Pro Display', sans-serif;
+  --body-medium-accent-font: normal 500 1.6rem/2.4rem 'SF Pro Display', sans-serif;  // не проверено
+  --body-medium-short-font: normal 400 1.6rem/2.2rem 'SF Pro Display', sans-serif;  // не проверено
+  --body-medium-subtitle-font: normal 500 1.6rem/2.2rem 'SF Pro Display', sans-serif;  // не проверено
+
+  --body-small-long-font: normal 400 1.4rem/2rem 'SF Pro Display', sans-serif;
+  --body-small-accent-font: normal 500 1.4rem/2rem 'SF Pro Display', sans-serif;  // не проверено
+  --body-small-short-font: normal 400 1.4rem/1.8rem 'SF Pro Display', sans-serif;  // не проверено
+  --body-small-subtitle-font: normal 500 1.4rem/1.8rem 'SF Pro Display', sans-serif;  // не проверено
+
+  --minor-font: normal 400 1.2rem/1.6rem 'SF Pro Display', sans-serif;
+  --minor-accent-font: normal 500 1.2rem/1.6rem 'SF Pro Display', sans-serif; // не проверено
+}

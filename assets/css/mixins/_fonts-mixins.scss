@@ -1,0 +1,186 @@
+// heading font
+@mixin heading-h1-font($with-margin: true) {
+  font: var(--desktop-heading-h1-font);
+  @if $with-margin == true {
+    margin-bottom: var(--space-500);
+  }
+
+  @media (max-width: 768px) {
+    font: var(--tablet-heading-h1-font);
+    @if $with-margin == true {
+      margin-bottom: var(--space-350);
+    }
+  }
+
+  @media (max-width: 540px) {
+    font: var(--mobile-heading-h1-font);
+    letter-spacing: 0;
+    @if $with-margin == true {
+      margin-bottom: var(--space-200);
+    }
+  }
+}
+
+@mixin heading-h2-font($with-margin: true) {
+  font: var(--desktop-heading-h2-font);
+  letter-spacing: .5px;
+  @if $with-margin == true {
+    margin-bottom: var(--space-300);
+  }
+
+  @media (max-width: 768px) {
+    font: var(--tablet-heading-h2-font);
+    letter-spacing: .4px;
+    @if $with-margin == true {
+      margin-bottom: var(--space-250);
+    }
+  }
+
+  @media (max-width: 540px) {
+    font: var(--mobile-heading-h2-font);
+    letter-spacing: .3px;
+    @if $with-margin == true {
+      margin-bottom: var(--space-200);
+    }
+  }
+}
+
+@mixin heading-h3-font($with-margin: true) {
+  font: var(--desktop-heading-h3-font);
+  letter-spacing: .5px;
+  @if $with-margin == true {
+    margin-bottom: var(--space-350);
+  }
+
+  @media (max-width: 768px) {
+    font: var(--tablet-heading-h3-font);
+    letter-spacing: .4px;
+    @if $with-margin == true {
+      margin-bottom: var(--space-400);
+    }
+  }
+
+  @media (max-width: 540px) {
+    font: var(--mobile-heading-h3-font);
+    @if $with-margin == true {
+      margin-bottom: var(--space-250);
+    }
+  }
+}
+
+@mixin heading-h4-font($with-margin: true) {
+  font: var(--desktop-heading-h4-font);
+  letter-spacing: .4px;
+  @if $with-margin == true {
+    margin-bottom: var(--space-350);
+  }
+
+  @media (max-width: 768px) {
+    font: var(--tablet-heading-h4-font);
+    letter-spacing: .3px;
+    @if $with-margin == true {
+      margin-bottom: var(--space-400);
+    }
+  }
+
+  @media (max-width: 540px) {
+    font: var(--mobile-heading-h4-font);
+    @if $with-margin == true {
+      margin-bottom: var(--space-250);
+    }
+  }
+}
+
+@mixin heading-display-font($with-margin: true) {
+  font: var(--desktop-heading-display-font);
+  @if $with-margin == true {
+    margin-bottom: var(--space-250);
+  }
+
+  @media (max-width: 768px) {
+    font: var(--tablet-heading-display-font);
+    @if $with-margin == true {
+      margin-bottom: var(--space-400);
+    }
+  }
+
+  @media (max-width: 540px) {
+    font: var(--mobile-heading-display-font);
+    @if $with-margin == true {
+      margin-bottom: var(--space-250);
+    }
+  }
+}
+
+// body font
+@mixin body-large-font($type: long) {
+  @if $type == 'long' {
+    font: var(--body-large-long-font);
+    letter-spacing: 0.3px;
+  // ниже кейсы пока не проверены, надо найти на макете примеры
+  // может такие вариации и отсутвуют
+  } @else if $type == 'accent' {
+    font: var(--body-large-accent-font);
+  } @else if $type == 'short' {
+    font: var(--body-large-short-font);
+  } @else if $type == 'subtitle' {
+    font: var(--body-large-subtitle-font);
+    letter-spacing: .3px;
+    margin-bottom: var(--space-100);
+    @media (max-width: 540px) {
+      @include body-medium-font(subtitle);
+    }
+  }
+}
+
+@mixin body-medium-font($type: long) {
+  @if $type == 'long' {
+    font: var(--body-medium-long-font);
+    letter-spacing: 0.25px;
+  // ниже кейсы пока не проверены, надо найти на макете примеры
+  // может такие вариации и отсутвуют
+  } @else if $type == 'accent' {
+    font: var(--body-medium-accent-font);
+    letter-spacing: 0.25px;
+  } @else if $type == 'short' {
+    font: var(--body-medium-short-font);
+    letter-spacing: 0.25px;
+  } @else if $type == 'subtitle' {
+    font: var(--body-medium-subtitle-font);
+    letter-spacing: 0.25px;
+  }
+}
+
+@mixin body-small-font($type: long) {
+  @if $type == 'long' {
+    font: var(--body-small-long-font);
+    letter-spacing: 0.21px;
+  // ниже кейсы пока не проверены, надо найти на макете примеры
+  // может такие вариации и отсутвуют
+  } @else if $type == 'accent' {
+    font: var(--body-small-accent-font);
+    letter-spacing: 0.25px;
+  } @else if $type == 'short' {
+    font: var(--body-small-short-font);
+    letter-spacing: 0.25px;
+  } @else if $type == 'subtitle' {
+    font: var(--body-small-subtitle-font);
+  }
+}
+
+// minor-font
+@mixin minor-font($type: caption) {
+  @if $type == 'caption' {
+    font: var(--minor-font);
+    letter-spacing: 0.17px;
+  // ниже кейсы пока не проверены, надо найти на макете примеры
+  // может такие вариации и отсутвуют
+  } @else if $type == 'accent' {
+    font: var(--minor-accent-font);
+    letter-spacing: 0.4px;
+  } @else if $type == 'overline' {
+    font: var(--minor-accent-font);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+}

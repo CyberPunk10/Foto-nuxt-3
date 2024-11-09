@@ -10,12 +10,19 @@ export default defineNuxtConfig({
     ],
     '@nuxtjs/tailwindcss',
     '@nuxt/eslint',
+    '@nuxt/content',
   ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  components: false,
+  components: {
+    global: true,
+    dirs: ['~/components/elements']
+  },
+  css: [
+    '@/assets/css/main.scss'
+  ],
   runtimeConfig: {
     jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,
     jwtRefreshSecret: process.env.JWT_REFRESH_TOKEN_SECRET,
@@ -27,6 +34,16 @@ export default defineNuxtConfig({
   },
   typescript: {
     shim: false
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          sourceMap: true,
+          additionalData: '@use "~/assets/css/mixins/_fonts-mixins" as *;'
+        }
+      }
+    }
   },
   // https://nitro.unjs.io/config
   // nitro: {
