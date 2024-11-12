@@ -65,6 +65,17 @@
       /> -->
       S
     </nuxt-link>
+
+    <nuxt-link
+      class="button-round home-page"
+      to="/twitter/auth"
+    >
+      <!-- <svg-icon
+        type="magic"
+        :class="{'--active': isSuperUser }"
+      /> -->
+      T
+    </nuxt-link>
   </div>
 </template>
 
@@ -85,7 +96,6 @@ function updateStyles() {
     const widthFastDev = (32 + 8 * 2) * countButtons + 6 * 2;
     fastDevRef.value.style = `
       width: ${widthFastDev}px;
-      left: calc(-1 * ${widthFastDev}px + 4px);
     `;
   }, 100);
 }
@@ -105,10 +115,11 @@ function updateStyles() {
   font-size: 16px;
   display: flex;
   align-items: center;
-  transition: left .2s;
+  transition: transform .2s;
+  transform: translateX(calc(-100% + 4px));
 
   &:hover {
-    left: 0 !important;
+    transform: translateX(0);
   }
 
   .button-round {

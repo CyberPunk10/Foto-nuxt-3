@@ -1,17 +1,14 @@
 <template>
   <div>
     <NuxtLayout>
-      <client-only>
-        <LoadingPage v-if="isAuthLoading" />
-      </client-only>
-
+      <LoadingPage v-if="isAuthLoading" />
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
 
 <script setup>
-import LoadingPage from '~/components/LoadingPage.vue'
+import LoadingPage from '~/components/Twitter/LoadingPage.vue'
 
 const { initAuth, useAuthLoading } = useAuth()
 const isAuthLoading = useAuthLoading()

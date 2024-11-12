@@ -10,11 +10,11 @@
 import MainSection from '~/components/Twitter/MainSection.vue';
 
 definePageMeta({
+  middleware: 'auth',
   layout: 'twitter'
 })
 
 const loading = ref(true);
-
 </script>
 
 <style lang="scss">

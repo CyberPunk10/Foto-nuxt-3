@@ -3,7 +3,7 @@ import { decodeAccessToken } from '../utils/jwt'
 import { getUserById } from '../db/users'
 
 export default defineEventHandler(async (event) => {
-  console.log('[ ---- server middleware ]: ')
+  console.log('\n\n[ server middleware auth ][ event.node.req.url ]: ', event.node.req.url);
   const endpoints = [
     '/api/auth/user',
     '/api/user/tweets',
@@ -15,8 +15,9 @@ export default defineEventHandler(async (event) => {
     return pattern.match(event.node.req.url)
   })
 
+  console.log('[ server middleware auth ][ isHandledByThisMiddleware ]: ', isHandledByThisMiddleware);
+
   if (!isHandledByThisMiddleware) {
-    console.log('[ !isHandledByThisMiddleware ]: ')
     return
   }
 

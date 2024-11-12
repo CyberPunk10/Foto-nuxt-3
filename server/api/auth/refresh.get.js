@@ -23,6 +23,13 @@ export default defineEventHandler(async (event) => {
 
   const token = decodeRefreshToken(refreshToken)
 
+  if (!token) {
+    return sendError(event, createError({
+      statusCode: 401,
+      statusMessage: 'Refresh token is invalid'
+    }))
+  }
+
   try {
     const user = await getUserById(token.userId)
 
@@ -30,6 +37,7 @@ export default defineEventHandler(async (event) => {
 
     return { access_token: accessToken }
   } catch (error) {
+    console.log('[ Error /api/auth/refresh.get.js ]: ', error);
     return sendError(event, createError({
       statusCode: 500,
       statusMessage: 'Something went wrong'

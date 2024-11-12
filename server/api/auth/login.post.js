@@ -1,7 +1,8 @@
 import bcrypt from 'bcrypt'
-import { getUserByUsername } from '../../db/users'
+import { sendError, createError, readBody } from 'h3'
 import { generateTokens, sendRefreshToken } from '../../utils/jwt'
 import { userTransformer } from '../../transformers/user'
+import { getUserByUsername } from '../../db/users'
 import { createRefreshToken } from '../../db/refreshToken'
 
 export default defineEventHandler(async (event) => {
@@ -52,7 +53,7 @@ export default defineEventHandler(async (event) => {
     userId: user.id
   })
 
-  // Add http only coockie
+  // Add httpOnly coockie
   sendRefreshToken(event, refreshToken)
 
   return {

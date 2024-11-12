@@ -1,8 +1,6 @@
 import { userTransformer } from '../../transformers/user'
 
-// TODO: (eslint подправить)
-// eslint-disable-next-line require-await
-export default defineEventHandler(async (event) => {
+export default defineEventHandler((event) => {
   return {
     user: userTransformer(event.context.auth?.user)
   }

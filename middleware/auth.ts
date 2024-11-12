@@ -1,7 +1,8 @@
 export default defineNuxtRouteMiddleware(() => {
-  console.log('[ auth.ts middleware ]: ')
-  const user = useState('user')
+  const { useAuthUser } = useAuth()
+  const user = useAuthUser()
+  console.log('[ middleware ][ auth.ts => authUser.value ]: ', user.value)
   if (!user.value) {
-    return navigateTo('/')
+    return navigateTo('/twitter/auth')
   }
 })

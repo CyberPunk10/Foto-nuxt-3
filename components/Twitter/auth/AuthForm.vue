@@ -33,14 +33,18 @@ const data = reactive({
 
 async function handleLogin() {
   data.loading = true
+
   const { login } = useAuth()
+
   try {
     await login({
       username: data.username,
       password: data.password
     })
+
+    navigateTo('/twitter')
   } catch (error) {
-    console.log('[ error ]: ', error)
+    console.log('[ Error handleLogin ]: ', error)
   } finally {
     data.loading = false
   }

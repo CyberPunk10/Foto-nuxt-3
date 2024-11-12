@@ -74,7 +74,7 @@ export default () => {
 
     const jwt = jwt_decode(authToken)
 
-    const newRefreshTime = jwt.exp - 6000 // за 1 минуту до истечения токена
+    const newRefreshTime = jwt.exp - 60000 // за 1 минуту до истечения токена
 
     setTimeout(async () => {
       await refreshToken()

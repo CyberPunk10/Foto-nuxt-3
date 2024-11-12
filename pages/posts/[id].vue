@@ -17,6 +17,5 @@
 
 <script setup>
 const route = useRoute()
-console.log('[ route.params.id ]: ', route.params.id)
 const post = await $fetch(`/api/posts/${route.params.id}`)
 </script>
