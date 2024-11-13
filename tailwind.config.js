@@ -1,6 +1,7 @@
 module.exports = {
   darkMode: 'class',
   content: [],
+  // TODO: вот это похоже вообще не работает
   extend: {
     colors: {
       dim: {

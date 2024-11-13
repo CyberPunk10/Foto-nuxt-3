@@ -1,22 +1,26 @@
 <template>
   <div>
     <div class="flex items-center flex-shrink-0 p-4 pb-0">
+      <!-- <div class="flex w-12 items-top">
+        <img
+          :src="props.user?.profileImage"
+          alt=""
+          class="inlene-block w-10 h-10 rounded-full"
+        >
+      </div> -->
       <div class="profile-photo">
-        <!-- {{ props?.user?.profileImage }} -->
         <img
           :src="props?.user?.profileImage"
           alt=""
         >
       </div>
 
-      <div class="">
+      <div class="w-full p-2">
         <textarea
           id=""
           v-model="text"
           name=""
-          cols="30"
-          rows="10"
-          class="text-area-tweet"
+          class="w-full h-10 text-lg text-gray-900 placeholder:text-gray-400 bg-transparent border-0 dark:text-white focus:ring-0"
           placeholder="What's happening ?"
         />
       </div>
@@ -29,6 +33,7 @@
         :src="inputImageUrl"
         alt=""
         class="rounded-2xl border"
+        :class="twitterBorderColor"
       >
 
       <input
@@ -40,8 +45,8 @@
       >
     </div>
 
-    <!-- Icons -->
-    <div class="flex p-2 pl-14 text-blue-400 rounded-full hover:bg-blue-500 dark:hover:bg-dim-800">
+    <div class="flex p-2 pl-14">
+      <!-- Icons -->
       <div class="flex w-full text-white">
         <div
           class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
@@ -65,7 +70,10 @@
           </svg>
         </div>
 
-        <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+        <div
+          class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
+          @click="handleImageClick"
+        >
           <svg
             viewBox="0 0 24 24"
             class="w-5 h-5"
@@ -82,7 +90,10 @@
           </svg>
         </div>
 
-        <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+        <div
+          class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
+          @click="handleImageClick"
+        >
           <svg
             viewBox="0 0 24 24"
             class="w-5 h-5"
@@ -96,7 +107,10 @@
           </svg>
         </div>
 
-        <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+        <div
+          class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
+          @click="handleImageClick"
+        >
           <svg
             viewBox="0 0 24 24"
             class="w-5 h-5"
@@ -123,7 +137,10 @@
           </svg>
         </div>
 
-        <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+        <div
+          class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
+          @click="handleImageClick"
+        >
           <svg
             viewBox="0 0 24 24"
             class="w-5 h-5"
@@ -145,21 +162,25 @@
         </div>
       </div>
 
-      <UIButton
-        size="sm"
-        :disabled="isDisabled"
-        @on-click="handlerFormSubmit"
-      >
-        <span class="font-bold">
-          Tweet
-        </span>
-      </UIButton>
+      <div class="ml-auto">
+        <UIButton
+          size="sm"
+          :disabled="isDisabled"
+          @on-click="handlerFormSubmit"
+        >
+          <span class="font-bold">
+            Tweet
+          </span>
+        </UIButton>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import UIButton from '~~/components/UI/UIButton.vue'
+import UIButton from '~~/components/UI/UIButton.vue';
+
+const { twitterBorderColor } = useTailwindConfig();
 
 const props = defineProps({
   user: {
@@ -170,9 +191,9 @@ const props = defineProps({
 
 const emits = defineEmits(['onSubmit'])
 
-const imageInput = ref()
-const selectedFile = ref(null)
-const inputImageUrl = ref(null)
+const imageInput = ref() // ref для инициирования добавления картинки
+const selectedFile = ref(null) // добавленный файл
+const inputImageUrl = ref(null) // ссылка для превью выбранной картинки
 const text = ref('')
 const isDisabled = computed(() => text.value === '')
 
@@ -184,6 +205,7 @@ function handlerFormSubmit() {
 }
 
 function handleImageClick() {
+  // открывает окно для добавления файла
   imageInput.value.click()
 }
 
@@ -192,12 +214,10 @@ function handleImageChange(event) {
 
   selectedFile.value = file
 
+  // показ выбранной картинки для предпросмотра
   const reader = new FileReader()
 
-  // TODO: dublicate event
-  reader.onload = (event2) => {
-    console.log('[ event.target.result ]: ', event2.target.result)
-    console.log('[ event.target ]: ', event2.target)
+  reader.onload = (event) => {
     inputImageUrl.value = event.target.result
   }
 
@@ -208,19 +228,13 @@ function handleImageChange(event) {
 <style>
 .profile-photo img {
   display: block;
-  width: 3rem;
-  min-width: 3rem;
-  height: 3rem;
-  min-height: 3rem;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
   border-radius: 50%;
   box-sizing: border-box;
   overflow: hidden;
-  margin-right: 1rem;
-}
-
-.text-area-tweet {
-  border-color: #ccc;
-  height: 2rem;
-  max-width: 15rem;
+  margin-right: .5rem;
 }
 </style>

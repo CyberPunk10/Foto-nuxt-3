@@ -1,6 +1,9 @@
 <template>
-  <div class="test">
-    <div v-if="loading">
+  <div>
+    <div
+      v-if="loading"
+      class="flex items-center justify-center py-6"
+    >
       <UISpinner />
     </div>
     <div v-else>
@@ -15,7 +18,7 @@
 <script setup>
 import useTweets from '~~/composables/useTweets'
 import TweetFormInput from './TweetFormInput.vue'
-import UISpinner from '../../UI/UISpinner.vue'
+import UISpinner from '~~/components/UI/UISpinner.vue'
 
 const { postTweet } = useTweets()
 
@@ -30,14 +33,14 @@ const loading = ref(false)
 
 async function handlerFormSubmit(data) {
   loading.value = true
+
   try {
     const response = await postTweet({
       text: data.text,
       mediaFiles: data.mediaFiles
     })
-    console.log('[ response ]: ', response) // TODO:
   } catch (error) {
-    console.log('[ error ]: ', error)
+    console.log('[ Error handlerFormSubmit ]: ', error)
   } finally {
     loading.value = false
   }

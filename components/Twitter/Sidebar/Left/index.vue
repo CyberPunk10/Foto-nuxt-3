@@ -20,6 +20,25 @@
           {{ tab.name }}
         </template>
       </SidebarLeftTab>
+
+      <div class="hidden xl:block">
+        <UIButton
+          size="lg"
+          liquid
+        >
+          <span class="font-bold">
+            Tweet
+          </span>
+        </UIButton>
+      </div>
+
+      <div class="block xl:hidden">
+        <UIButton>
+          <div class="w-6 h-6 font-bold">
+            <PencilIcon />
+          </div>
+        </UIButton>
+      </div>
     </div>
 
   </div>
@@ -35,7 +54,9 @@ import {
   DocumentTextIcon,
   UserIcon,
   EllipsisHorizontalCircleIcon,
+  PencilIcon,
 } from '@heroicons/vue/24/outline'
+import UIButton from '~~/components/UI/UIButton.vue';
 import LogoTwitter from '~/components/Twitter/Logo/Twitter.vue'
 import SidebarLeftTab from '~/components/Twitter/Sidebar/Left/Tab.vue'
 

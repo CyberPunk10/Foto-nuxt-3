@@ -13,8 +13,6 @@
         <slot />
       </div>
     </div>
-
-    <slot/>
   </div>
 </template>
 
