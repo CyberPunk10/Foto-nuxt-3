@@ -1,13 +1,27 @@
-import { getTweet } from '../../db/tweets'
+import { getTweets } from '../../db/tweets'
 import { tweetTransformer } from '../../transformers/tweet'
 
 export default defineEventHandler(async () => {
-  const tweets = await getTweet({
+  const tweets = await getTweets({
     include: {
       author: true,
       mediaFiles: true,
-      replies: true
-    }
+      replies: {
+        include: {
+          author: true,
+        }
+      },
+      replyTo: {
+        include: {
+          author: true,
+        }
+      }
+    },
+    orderBy: [
+      {
+        createdAt: 'desc'
+      }
+    ]
   })
 
   return {

@@ -1,7 +1,15 @@
 <template>
   <div>
     <MainSection title="home" :loading="loading">
-      <TweetForm v-if="user" :user="user" />
+      <Head>
+        <Title>Home / Twitter</Title>
+      </Head>
+
+      <div class="border-b" :class="twitterBorderColor">
+        <TweetForm v-if="user" :user="user" placeholder="What's happening ?" />
+      </div>
+
+      <ListFeed :tweets="homeTweets" />
     </MainSection>
   </div>
 </template>
@@ -9,6 +17,11 @@
 <script setup>
 import TweetForm from '~~/components/Twitter/tweet/form/TweetForm.vue'
 import MainSection from '~/components/Twitter/MainSection.vue';
+import ListFeed from '~/components/Twitter/tweet/ListFeed.vue';
+
+const { getHomeTweets } = useTweets()
+
+const { twitterBorderColor } = useTailwindConfig();
 
 definePageMeta({
   middleware: 'auth',
@@ -19,9 +32,24 @@ const { useAuthUser, useAuthLoading } = useAuth()
 const user = useAuthUser()
 const isAuthLoading = useAuthLoading()
 
-const loadingMainSection = ref(false);
+const loadingListTweets = ref(false);
 
-const loading = computed(() => isAuthLoading.value || loadingMainSection.value);
+const loading = computed(() => isAuthLoading.value || loadingListTweets.value);
+
+const homeTweets = ref([]);
+
+onBeforeMount(async () => {
+  loadingListTweets.value = true;
+
+  try {
+    const { tweets } = await getHomeTweets();
+    homeTweets.value = tweets
+  } catch (error) {
+    console.log('[ Error getHomeTweets ]: ', error);
+  } finally{
+    loadingListTweets.value = false;
+  }
+})
 
 </script>
 

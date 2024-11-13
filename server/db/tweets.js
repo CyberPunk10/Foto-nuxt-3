@@ -6,6 +6,16 @@ export const createTweet = (tweetData) => {
   })
 }
 
-export const getTweet = (params) => {
+export const getTweets = (params) => {
   return prisma.tweet.findMany(params)
+}
+
+export const getTweetById = (tweetId, params = {}) => {
+  return prisma.tweet.findUnique({
+    ...params,
+    where: {
+      ...params.where,
+      id: tweetId
+    },
+  })
 }

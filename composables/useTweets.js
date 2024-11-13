@@ -14,7 +14,38 @@ export default () => {
     })
   }
 
+  const getHomeTweets = () => {
+    return new Promise((resolve, reject) => {
+      try {
+        const response = useFetchApi('/api/tweets', {
+          method: 'GET',
+        })
+        resolve(response)
+      } catch (error) {
+        console.log('[ Error useTweets.getHomeTweets ]: ', error);
+        reject(error)
+      }
+    });
+  }
+
+  const getTweetById = (tweetId) => {
+    return new Promise((resolve, reject) => {
+      try {
+        const response = useFetchApi(`/api/tweets/${tweetId}`, {
+          method: 'GET',
+        })
+        resolve(response)
+      } catch (error) {
+        console.log('[ Error useTweets.getTweetById ]: ', error);
+        reject(error)
+      }
+    });
+
+  }
+
   return {
-    postTweet
+    getHomeTweets,
+    getTweetById,
+    postTweet,
   }
 }

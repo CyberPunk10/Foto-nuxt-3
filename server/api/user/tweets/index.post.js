@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   const { replyTo } = fields
 
   if (replyTo) {
-    tweetData.replyToId = replyTo
+    tweetData.replyToId = +replyTo
   }
 
   const tweet = await createTweet(tweetData)
