@@ -8,6 +8,11 @@
     </div>
 
     <div v-else>
+      <TweetItem
+        v-if="props.replyTo && props.showReply"
+        :tweet="props.replyTo"
+        hide-actions
+      />
       <TweetFormInput
         :placeholder="props.placeholder"
         :user="props.user"
@@ -21,6 +26,7 @@
 import useTweets from '~~/composables/useTweets'
 import TweetFormInput from './TweetFormInput.vue'
 import UISpinner from '~~/components/UI/UISpinner.vue'
+import TweetItem from '../Item/TweetItem.vue';
 
 const { postTweet } = useTweets()
 
@@ -38,6 +44,10 @@ const props = defineProps({
   replyTo: {
     type: Object,
     default: null,
+  },
+  showReply: {
+    type: Boolean,
+    default: false
   }
 })
 

@@ -25,6 +25,7 @@
         <UIButton
           size="lg"
           liquid
+          @on-click="emits('onTweet')"
         >
           <span class="font-bold">
             Tweet
@@ -59,6 +60,8 @@ import {
 import UIButton from '~~/components/UI/UIButton.vue';
 import LogoTwitter from '~/components/Twitter/Logo/Twitter.vue'
 import SidebarLeftTab from '~/components/Twitter/Sidebar/Left/Tab.vue'
+
+const emits = defineEmits(['onTweet']);
 
 const { defaultTransition } = useTailwindConfig()
 

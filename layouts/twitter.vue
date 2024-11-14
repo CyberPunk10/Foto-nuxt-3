@@ -6,7 +6,7 @@
           <!-- Left sidebar -->
           <div class="hidden md:block xs-col-span-1 xl:col-span-2">
             <div class="sticky top-0">
-              <SidebarLeft />
+              <SidebarLeft @on-tweet="handlerOpenTweetModal" />
             </div>
           </div>
 
@@ -24,13 +24,29 @@
         </div>
       </div>
     </div>
+
+    <UIModal
+      :is-open="postTweetModal"
+      @on-close="handleModuleClose"
+    >
+      <TweetForm
+        :user="user"
+        :reply-to="replyTweet"
+        show-reply
+        @on-success="handlerFormSuccess"
+      />
+    </UIModal>
+
     <!-- TODO: убрать: || true -->
     <fast-dev v-if="$config.appEnv === 'dev' || $config.appEnv === 'prod_qa' || true" />
+
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FastDev from '~/components/dev/FastDev.vue';
+import TweetForm from '~/components/Twitter/tweet/form/TweetForm.vue';
+import UIModal from '~/components/UI/UIModal.vue';
 import SidebarLeft from '~~/components/Twitter/Sidebar/Left/index.vue'
 import SidebarRight from '~~/components/Twitter/Sidebar/Right/index.vue'
 
@@ -40,8 +56,41 @@ useHead({
   },
 });
 
+const { useAuthUser } = useAuth()
+const user = useAuthUser()
+
 const colorMode = useColorMode();
 const darkMode = computed(() => colorMode.preference === 'dark')
+
+const {
+  closePostTweetModal,
+  getHomeTweets,
+  openPostTweetModal,
+  usePostTweetModal,
+  useReplyTweet,
+} = useTweets();
+
+const postTweetModal = usePostTweetModal();
+const emitter = useEmitter();
+const replyTweet = useReplyTweet();
+
+emitter.$on('replyTweet', (tweet) => {
+  openPostTweetModal(tweet)
+})
+
+function handlerFormSuccess() {
+  closePostTweetModal();
+  getHomeTweets();
+}
+
+function handleModuleClose() {
+  closePostTweetModal();
+}
+
+function handlerOpenTweetModal() {
+  openPostTweetModal(null);
+}
+
 </script>
 
 <!-- <style lang="scss">

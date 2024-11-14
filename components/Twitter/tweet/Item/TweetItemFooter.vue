@@ -1,7 +1,7 @@
 <template>
   <div class="tweet-item__footer mt-2">
     <div class="flex items-center justify-around w-full">
-      <TweetItemFooterIcon color="blue" :size="sizeIcon">
+      <TweetItemFooterIcon color="blue" :size="sizeIcon" @on-click="emits('onCommentClick')">
         <template #icon="{ classes }" >
           <ChatBubbleOvalLeftEllipsisIcon :class="classes" />
         </template>
@@ -55,6 +55,8 @@
 <script setup>
 import { ChatBubbleOvalLeftEllipsisIcon, ArrowPathIcon, HeartIcon, ArrowUpTrayIcon } from '@heroicons/vue/24/solid'
 import TweetItemFooterIcon from './TweetItemFooterIcon.vue';
+
+const emits = defineEmits(['onCommentClick']);
 
 const props = defineProps({
   tweet: {

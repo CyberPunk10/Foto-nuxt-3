@@ -24,7 +24,7 @@ import TweetForm from '~~/components/Twitter/tweet/form/TweetForm.vue'
 import MainSection from '~/components/Twitter/MainSection.vue';
 import ListFeed from '~/components/Twitter/tweet/ListFeed.vue';
 
-const { getHomeTweets } = useTweets()
+const { getHomeTweets, useHomeTweets } = useTweets()
 
 const { twitterBorderColor } = useTailwindConfig();
 
@@ -41,7 +41,7 @@ const loadingListTweets = ref(false);
 
 const loading = computed(() => isAuthLoading.value || loadingListTweets.value);
 
-const homeTweets = ref([]);
+const homeTweets = useHomeTweets();
 
 onBeforeMount(async () => {
   await loadTweets()
@@ -49,15 +49,8 @@ onBeforeMount(async () => {
 
 async function loadTweets(ignoreLoading) {
   loadingListTweets.value = ignoreLoading ? false : true;
-
-  try {
-    const { tweets } = await getHomeTweets();
-    homeTweets.value = tweets
-  } catch (error) {
-    console.log('[ Error getHomeTweets ]: ', error);
-  } finally{
-    loadingListTweets.value = false;
-  }
+  await getHomeTweets();
+  loadingListTweets.value = false;
 }
 
 function handleFormSuccess() {

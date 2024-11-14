@@ -21,7 +21,12 @@
       </div>
     </div>
 
-    <TweetItemFooter :tweet="props.tweet" :compact="props.compact" />
+    <TweetItemFooter
+      v-if="!props.hideActions"
+      :tweet="props.tweet"
+      :compact="props.compact"
+      @on-comment-click="handleOnCommentClick"
+    />
   </div>
 </template>
 
@@ -31,6 +36,8 @@ import TweetItemFooter from './TweetItemFooter.vue';
 
 const { twitterBorderColor } = useTailwindConfig();
 
+const emitter = useEmitter();
+
 const props = defineProps({
   tweet: {
     type: Object,
@@ -39,10 +46,17 @@ const props = defineProps({
   compact: {
     type: Boolean,
     default: false,
+  },
+  hideActions: {
+    type: Boolean,
+    default: false,
   }
 })
 
 const tweetBodyWrapper = computed(() => props.compact ? 'ml-16' : 'ml-2 mt-4')
 const textSize = computed(() => props.compact ? 'text-base' : 'text-2xl')
 
+function handleOnCommentClick() {
+  emitter.$emit('replyTweet', props.tweet)
+}
 </script>
