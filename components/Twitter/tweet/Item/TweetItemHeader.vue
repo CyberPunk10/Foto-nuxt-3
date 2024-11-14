@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex">
+  <div class="tweet-item__header p-4 flex">
     <div>
       <img
         :src="author.profileImage"
@@ -8,6 +8,9 @@
       >
     </div>
     <div class="ml-3">
+      <span class="text-gray-500 text-sm mr-1">
+        #{{ props.tweet.id }}
+      </span>
       <span class="font-medium text-gray-800 dark:text-white">
         {{ author.name }}
       </span>
@@ -29,6 +32,10 @@
         >
           {{ props.tweet.replyTo.author.handle }}
         </nuxt-link>
+
+        <span class="text-gray-500">
+          #{{ props.tweet.replyTo.id }}
+        </span>
       </p>
     </div>
   </div>

@@ -6,7 +6,12 @@
       </Head>
 
       <div class="border-b" :class="twitterBorderColor">
-        <TweetForm v-if="user" :user="user" placeholder="What's happening ?" />
+        <TweetForm
+          v-if="user"
+          :user="user"
+          placeholder="What's happening ?"
+          @on-success="handleFormSuccess"
+        />
       </div>
 
       <ListFeed :tweets="homeTweets" />
@@ -39,7 +44,11 @@ const loading = computed(() => isAuthLoading.value || loadingListTweets.value);
 const homeTweets = ref([]);
 
 onBeforeMount(async () => {
-  loadingListTweets.value = true;
+  await loadTweets()
+})
+
+async function loadTweets(ignoreLoading) {
+  loadingListTweets.value = ignoreLoading ? false : true;
 
   try {
     const { tweets } = await getHomeTweets();
@@ -49,7 +58,11 @@ onBeforeMount(async () => {
   } finally{
     loadingListTweets.value = false;
   }
-})
+}
+
+function handleFormSuccess() {
+  loadTweets(true)
+}
 
 </script>
 

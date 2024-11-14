@@ -24,6 +24,8 @@ import UISpinner from '~~/components/UI/UISpinner.vue'
 
 const { postTweet } = useTweets()
 
+const emits = defineEmits(['onSuccess'])
+
 const props = defineProps({
   user: {
     type: Object,
@@ -32,6 +34,10 @@ const props = defineProps({
   placeholder: {
     type: String,
     default: '',
+  },
+  replyTo: {
+    type: Object,
+    default: null,
   }
 })
 
@@ -41,10 +47,12 @@ async function handlerFormSubmit(data) {
   loading.value = true
 
   try {
-    await postTweet({
+    const response = await postTweet({
       text: data.text,
-      mediaFiles: data.mediaFiles
+      mediaFiles: data.mediaFiles,
+      replyTo: props.replyTo?.id
     })
+    emits('onSuccess', response.tweet)
   } catch (error) {
     console.log('[ Error handlerFormSubmit ]: ', error)
   } finally {
