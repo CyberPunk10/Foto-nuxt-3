@@ -1,5 +1,20 @@
 <template>
   <div class="h-screen flex flex-col">
+    <!-- Search bar -->
+     <div class="relative m-2">
+        <div class="absolute flex items-center h-full pl-4 text-gray-600 cursor-pointer">
+          <div class="w-6 h-6">
+            <MagnifyingGlassIcon @click="handleSearch" />
+          </div>
+        </div>
+        <input
+          v-model="searchModel"
+          type="text"
+          class="flex items-center w-full pl-12 text-sm font-normal text-black dark:text-gray-100 bg-gray-200 border border-gray-200 rounded-full shadow dark:bg-dim-400 dark:border-dim-400 focus:bg-gray-100 dark:focus:bg-dim-900 focus:outline-none focus:border focus:border-blue-200 h-9"
+          placeholder="Search tweet"
+        >
+     </div>
+
     <!-- Preview Card: What's happaning -->
     <PreviewCard title="What's happening">
       <PreviewCardItem v-for="item in whatsHappeningItems" :key="item.title">
@@ -38,14 +53,54 @@
         </div>
       </PreviewCardItem>
     </PreviewCard>
+
+    <footer>
+      <ul class="mx-2 my-4 text-xs text-gray-500">
+        <li class="inline-block mx-2">
+          <a
+            href="#"
+            class="hover:underline"
+            @click.prevent="handleToggleDarkMode"
+          >Dark mode</a>
+        </li>
+        <li class="inline-block mx-2">
+          <a href="#" class="hover:underline">Privacy Policy</a>
+        </li>
+        <li class="inline-block mx-2">
+          <a href="#" class="hover:underline">Cookie Policy</a>
+        </li>
+        <li class="inline-block mx-2">
+          <a href="#" class="hover:underline">Accessability</a>
+        </li>
+        <li class="inline-block mx-2">
+          <a href="#" class="hover:underline">Ads info</a>
+        </li>
+        <li class="inline-block mx-2">
+          <a href="#" class="hover:underline">More</a>
+        </li>
+        <li class="inline-block mx-2">
+          @ 2022 Twitter, Inc
+        </li>
+      </ul>
+    </footer>
   </div>
 </template>
 
 <script setup>
+import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 import PreviewCard from '~/components/Twitter/Sidebar/Right/PreviewCard/index.vue'
 import PreviewCardItem from '~/components/Twitter/Sidebar/Right/PreviewCard/Item.vue'
 
-// const { defaultTransition } = useTailwindConfig()
+const searchModel = ref('')
+
+function handleSearch() {
+  useRouter().push({
+    path: '/twitter/search',
+    query: {
+      q: searchModel.value
+    }
+  })
+}
 
 const whatsHappeningItems = ref([
   {
@@ -79,5 +134,12 @@ const whoToFollowItems = ref([
     image: 'https://picsum.photos/200/200'
   },
 ])
+
+const colorMode = useColorMode();
+const darkMode = computed(() => colorMode.preference === 'dark')
+
+function handleToggleDarkMode() {
+  useColorMode().preference = darkMode.value ? 'light' : 'dark'
+}
 
 </script>

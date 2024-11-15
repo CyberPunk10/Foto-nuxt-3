@@ -64,7 +64,7 @@ const darkMode = computed(() => colorMode.preference === 'dark')
 
 const {
   closePostTweetModal,
-  getHomeTweets,
+  getTweets,
   openPostTweetModal,
   usePostTweetModal,
   useReplyTweet,
@@ -80,7 +80,7 @@ emitter.$on('replyTweet', (tweet) => {
 
 function handlerFormSuccess() {
   closePostTweetModal();
-  getHomeTweets();
+  getTweets();
 }
 
 function handleModuleClose() {

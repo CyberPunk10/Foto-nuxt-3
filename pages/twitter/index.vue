@@ -14,7 +14,7 @@
         />
       </div>
 
-      <ListFeed :tweets="homeTweets" />
+      <ListFeed :tweets="allTweets" />
     </MainSection>
   </div>
 </template>
@@ -24,7 +24,7 @@ import TweetForm from '~~/components/Twitter/tweet/form/TweetForm.vue'
 import MainSection from '~/components/Twitter/MainSection.vue';
 import ListFeed from '~/components/Twitter/tweet/ListFeed.vue';
 
-const { getHomeTweets, useHomeTweets } = useTweets()
+const { getTweets, useAllTweets } = useTweets()
 
 const { twitterBorderColor } = useTailwindConfig();
 
@@ -41,7 +41,7 @@ const loadingListTweets = ref(false);
 
 const loading = computed(() => isAuthLoading.value || loadingListTweets.value);
 
-const homeTweets = useHomeTweets();
+const allTweets = useAllTweets();
 
 onBeforeMount(async () => {
   await loadTweets()
@@ -49,7 +49,7 @@ onBeforeMount(async () => {
 
 async function loadTweets(ignoreLoading) {
   loadingListTweets.value = ignoreLoading ? false : true;
-  await getHomeTweets();
+  await getTweets();
   loadingListTweets.value = false;
 }
 

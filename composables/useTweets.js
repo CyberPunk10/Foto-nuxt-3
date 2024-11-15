@@ -15,20 +15,23 @@ export default () => {
     })
   }
 
-  const useHomeTweets = () => useState('home_tweets', () => []);
+  const useAllTweets = () => useState('home_tweets', () => []);
 
-  async function getHomeTweets() {
+  async function getTweets(params = {}) {
     try {
       const response = await useFetchApi('/api/tweets', {
         method: 'GET',
+        params,
       });
 
-      const homeTweets = useHomeTweets();
-      homeTweets.value = response.tweets;
+      if (!params.query) {
+        const allTweets = useAllTweets();
+        allTweets.value = response.tweets;
+      }
 
       return response;
     } catch (error) {
-      console.log('[ Error useTweets.getHomeTweets ]: ', error);
+      console.log('[ Error useTweets.getTweets ]: ', error);
       throw error;
     }
   }
@@ -67,11 +70,11 @@ export default () => {
 
   return {
     closePostTweetModal,
-    getHomeTweets,
+    getTweets,
     getTweetById,
     openPostTweetModal,
     postTweet,
-    useHomeTweets,
+    useAllTweets,
     usePostTweetModal,
     useReplyTweet,
   }

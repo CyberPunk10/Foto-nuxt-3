@@ -34,6 +34,8 @@ onBeforeMount(() => {
   getTweet()
 })
 
+watch(() => useRoute().fullPath, () => getTweet());
+
 const { getTweetById } = useTweets();
 
 async function getTweet() {
