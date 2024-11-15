@@ -11,6 +11,11 @@ alt="Build and Deploy a Full Stack Social Media App with Nuxt 3, TailwindCSS and
   - <a href="http://www.youtube.com/watch?feature=player_embedded&v=A24aKCQ-rf4" target="_blank"><img src="http://img.youtube.com/vi/A24aKCQ-rf4/0.jpg" 
 alt="Nuxt 3 tutorial part 1. Build a full stack app with Nuxt 3" width="240" height="180" border="10" /></a>
 
+## Также практика использования:
+ - Prisma
+ - Postgre
+ - TailwindCSS
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
