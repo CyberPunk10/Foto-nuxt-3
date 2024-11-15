@@ -12,6 +12,7 @@
           type="text"
           class="flex items-center w-full pl-12 text-sm font-normal text-black dark:text-gray-100 bg-gray-200 border border-gray-200 rounded-full shadow dark:bg-dim-400 dark:border-dim-400 focus:bg-gray-100 dark:focus:bg-dim-900 focus:outline-none focus:border focus:border-blue-200 h-9"
           placeholder="Search tweet"
+          @keyup.enter="handleSearch"
         >
      </div>
 
@@ -88,7 +89,7 @@
 
 <script setup>
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
-import PreviewCard from '~/components/Twitter/Sidebar/Right/PreviewCard/index.vue'
+import PreviewCard from '~/components/Twitter/Sidebar/Right/PreviewCard/PreviewCard.vue'
 import PreviewCardItem from '~/components/Twitter/Sidebar/Right/PreviewCard/Item.vue'
 
 const searchModel = ref('')

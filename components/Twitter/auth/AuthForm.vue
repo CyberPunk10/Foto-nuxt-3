@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div class="w-full">
+    <div class="flex justify-center">
+      <div class="w-10 h-10">
+        <LogoTwitter />
+      </div>
+    </div>
+
     <div class="pt-5 space-y-6">
       <UIInput
         v-model="data.username"
@@ -13,23 +19,29 @@
         type="password"
       />
 
-      <div>
-        <button type="button" @click="handleLogin">
-          Login
-        </button>
-      </div>
+      <UIButton
+        liquid
+        :disabled="isButtonDisabled"
+        @click="handleLogin"
+      >
+        Login
+      </UIButton>
     </div>
   </div>
 </template>
 
 <script setup>
-import UIInput from '~~/components/UI/UIInput.vue'
+import LogoTwitter from '~/components/Twitter/Logo/Twitter.vue'
+import UIInput from '~/components/UI/UIInput.vue'
+import UIButton from '~/components/UI/UIButton.vue';
 
 const data = reactive({
   username: '',
   password: '',
   loading: false
 })
+
+const isButtonDisabled = computed(() => !data.username || !data.password || data.loading)
 
 async function handleLogin() {
   data.loading = true

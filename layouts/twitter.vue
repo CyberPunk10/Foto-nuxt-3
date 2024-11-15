@@ -6,7 +6,11 @@
           <!-- Left sidebar -->
           <div class="hidden md:block xs-col-span-1 xl:col-span-2">
             <div class="sticky top-0">
-              <SidebarLeft @on-tweet="handlerOpenTweetModal" />
+              <SidebarLeft
+                :user="user"
+                @on-tweet="handlerOpenTweetModal"
+                @on-logout="handleUserLogout"
+              />
             </div>
           </div>
 
@@ -47,8 +51,8 @@
 import FastDev from '~/components/dev/FastDev.vue';
 import TweetForm from '~/components/Twitter/tweet/form/TweetForm.vue';
 import UIModal from '~/components/UI/UIModal.vue';
-import SidebarLeft from '~~/components/Twitter/Sidebar/Left/index.vue'
-import SidebarRight from '~~/components/Twitter/Sidebar/Right/index.vue'
+import SidebarLeft from '~/components/Twitter/Sidebar/Left/SidebarLeft.vue'
+import SidebarRight from '~/components/Twitter/Sidebar/Right/SidebarRight.vue'
 
 useHead({
   htmlAttrs: {
@@ -56,7 +60,7 @@ useHead({
   },
 });
 
-const { useAuthUser } = useAuth()
+const { useAuthUser, logout } = useAuth()
 const user = useAuthUser()
 
 const colorMode = useColorMode();
@@ -89,6 +93,10 @@ function handleModuleClose() {
 
 function handlerOpenTweetModal() {
   openPostTweetModal(null);
+}
+
+function handleUserLogout() {
+  logout()
 }
 
 </script>

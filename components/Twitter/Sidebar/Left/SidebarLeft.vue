@@ -11,8 +11,12 @@
       </nuxt-link>
     </div>
 
-    <div class="">
-      <SidebarLeftTab v-for="tab in tabs" :key="tab.name" :active="tab.active">
+    <div class="mt-2 space-y-3">
+      <SidebarLeftTab
+        v-for="tab in tabs"
+        :key="tab.name"
+        :active="tab.active"
+      >
         <template #icon>
           <component :is="tab.icon" :key="tab.name" />
         </template>
@@ -42,6 +46,33 @@
       </div>
     </div>
 
+    <div
+      class="flex flex-row items-center justify-center px-2 py-2 mx-auto mt-auto mb-5 rounded-full cursor-pointer w-14 xl:w-full hover:bg-gray-100 dark:hover:bg-dim-800"
+      :class="defaultTransition"
+      @click="emits('onLogout')"
+    >
+      <div class="flex flex-row">
+        <img
+          :src="props.user?.profileImage"
+          alt=""
+          class="w-1- h-10 rounded-full"
+        >
+        <div class="flex-col hidden ml-2 xl:block">
+          <span class="text-sm font-bold text-gray-800 dark:text-white">
+            {{ props.user?.name }}
+          </span>
+          <p class="text-sm text-gray-400">
+            {{ props.user?.handle }}
+          </p>
+        </div>
+      </div>
+
+      <div class="hidden ml-auto xl:block">
+        <div class="w-6 h-6">
+          <ChevronDownIcon />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -56,12 +87,20 @@ import {
   UserIcon,
   EllipsisHorizontalCircleIcon,
   PencilIcon,
+  ChevronDownIcon,
 } from '@heroicons/vue/24/outline'
-import UIButton from '~~/components/UI/UIButton.vue';
+import UIButton from '~/components/UI/UIButton.vue';
 import LogoTwitter from '~/components/Twitter/Logo/Twitter.vue'
 import SidebarLeftTab from '~/components/Twitter/Sidebar/Left/Tab.vue'
 
-const emits = defineEmits(['onTweet']);
+const emits = defineEmits(['onTweet', 'onLogout']);
+
+const props = defineProps({
+  user: {
+    type: Object,
+    required: true,
+  }
+})
 
 const { defaultTransition } = useTailwindConfig()
 

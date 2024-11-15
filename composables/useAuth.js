@@ -100,9 +100,26 @@ export default () => {
     })
   }
 
+  function logout() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await useFetchApi('/api/auth/logout', {
+          method: 'POST',
+        })
+        await navigateTo('/twitter/auth')
+        setToken(null)
+        setUser(null)
+        resolve()
+      } catch (error) {
+        reject(error)
+      }
+    })
+  }
+
   return {
     initAuth,
     login,
+    logout,
     useAuthLoading,
     useAuthToken,
     useAuthUser
