@@ -24,6 +24,9 @@ export default defineNuxtConfig({
     //   }
     // ]
   ],
+  build: {
+    transpile: ['@heroicons/vue']
+  },
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

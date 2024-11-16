@@ -11,6 +11,6 @@
 const time = await $fetch('/api/now')
 
 definePageMeta({
-  layout: 'layout-navbar'
+  layout: 'full-stack-jack'
 })
 </script>
