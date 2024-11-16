@@ -19,6 +19,7 @@ alt="Build and Deploy a Full Stack Social Media App with Nuxt 3, TailwindCSS and
 2. [Nuxt 3 tutorial part 1. Build a full stack app with Nuxt 3](https://youtu.be/A24aKCQ-rf4?si=rSxgfGMUT2BTJrWU)
     - <a href="http://www.youtube.com/watch?feature=player_embedded&v=A24aKCQ-rf4" target="_blank"><img src="http://img.youtube.com/vi/A24aKCQ-rf4/0.jpg" 
 alt="Nuxt 3 tutorial part 1. Build a full stack app with Nuxt 3" width="240" height="180" border="10" /></a>
+    - репозитрий из курса: https://github.com/jurassicjs/nuxt3-fullstack-tutorial
 
 ## Также практика использования:
  - Prisma
