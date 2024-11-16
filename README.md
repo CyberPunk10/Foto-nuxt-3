@@ -6,6 +6,15 @@ alt="Build and Deploy a Full Stack Social Media App with Nuxt 3, TailwindCSS and
     - репозитрий из курса: https://github.com/hassnian/d-twitter-clone
     - assets (иконки и прочее): https://gist.github.com/hassnian/a8ef7f243dcc933887b31af77e73df29
     - реализация сделана в отдельном layout `twitter` и посмотреть можно на роуте `/twitter`
+    - deploy
+      - https://foto-nuxt-3.vercel.app/twitter/auth
+      - вроде как на netify тоже есть
+    - TODO:
+      - на проде, т.к. внутри предполагается использование Postgree, то авторизация не работает, т.к. надо как-то настроить базу по всей видимости
+      - есть проблемы с авторизацией в целом:
+        - нужно чтобы после авторизации редиректило на страницу, на которую пользователь изначально собирался зайти, а не на домашнюю
+        - сейчас находясь даже не на страницах twitter всё равно редиректит на страницу авторизации, если пользователь не авторизован
+         
 
 2. [Nuxt 3 tutorial part 1. Build a full stack app with Nuxt 3](https://youtu.be/A24aKCQ-rf4?si=rSxgfGMUT2BTJrWU)
     - <a href="http://www.youtube.com/watch?feature=player_embedded&v=A24aKCQ-rf4" target="_blank"><img src="http://img.youtube.com/vi/A24aKCQ-rf4/0.jpg" 
