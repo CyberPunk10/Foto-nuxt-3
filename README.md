@@ -7,8 +7,8 @@ alt="Build and Deploy a Full Stack Social Media App with Nuxt 3, TailwindCSS and
     - assets (иконки и прочее): https://gist.github.com/hassnian/a8ef7f243dcc933887b31af77e73df29
     - реализация сделана в отдельном layout `twitter` и посмотреть можно на роуте `/twitter`
     - deploy
-      - https://foto-nuxt-3.vercel.app/twitter/auth
-      - вроде как на netify тоже есть
+      - [vercel](https://foto-nuxt-3.vercel.app/twitter/auth)
+      - [netlify](https://foto-nuxt-3.netlify.app/twitter/auth)
     - TODO:
       - на проде, т.к. внутри предполагается использование Postgree, то авторизация не работает, т.к. надо как-то настроить базу по всей видимости
       - есть проблемы с авторизацией в целом:
