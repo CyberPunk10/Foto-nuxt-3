@@ -9,6 +9,6 @@
 
 <script setup>
 definePageMeta({
-  layout: 'layout-navbar'
+  layout: 'full-stack-jack'
 })
 </script>

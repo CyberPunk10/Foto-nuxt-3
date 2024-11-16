@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'auth',
-  layout: 'layout-navbar',
+  // middleware: 'auth',
+  layout: 'full-stack-jack',
 })
 </script>
