@@ -29,7 +29,6 @@ const { getTweets, useAllTweets } = useTweets()
 const { twitterBorderColor } = useTailwindConfig();
 
 definePageMeta({
-  middleware: 'auth',
   layout: 'twitter'
 })
 

@@ -92,8 +92,11 @@ export default () => {
         reRefreshAccessToken()
 
         resolve(true)
+        await navigateTo('/twitter') // TODO: доделать, должны оставаться на той же странице, с которой произошёл запрос
       } catch (error) {
+        console.log('[ Error initAuth ]: ', error);
         reject(error)
+        await navigateTo('/twitter/auth')
       } finally {
         setIsAuthLoading(false)
       }
@@ -122,6 +125,6 @@ export default () => {
     logout,
     useAuthLoading,
     useAuthToken,
-    useAuthUser
+    useAuthUser,
   }
 }

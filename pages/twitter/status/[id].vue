@@ -15,7 +15,6 @@ import MainSection from '~/components/Twitter/MainSection.vue';
 import TweetDetails from '~/components/Twitter/tweet/TweetDetails.vue';
 
 definePageMeta({
-  middleware: 'auth',
   layout: 'twitter'
 })
 

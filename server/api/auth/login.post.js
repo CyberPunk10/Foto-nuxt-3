@@ -53,7 +53,7 @@ export default defineEventHandler(async (event) => {
     userId: user.id
   })
 
-  // Add httpOnly coockie
+  // Add httpOnly cookie
   sendRefreshToken(event, refreshToken)
 
   return {
