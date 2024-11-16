@@ -1,10 +1,6 @@
 <template>
   <div>
     <MainSection title="Search" :loading="loading">
-      <Head>
-        <Title>Search / Twitter</Title>
-      </Head>
-
       <ListFeed :tweets="searchTweets" />
     </MainSection>
   </div>
@@ -16,6 +12,10 @@ import ListFeed from '~/components/Twitter/tweet/ListFeed.vue';
 
 definePageMeta({
   layout: 'twitter'
+})
+
+useHead({
+  title: 'Twitter | Search'
 })
 
 const { useAuthLoading } = useAuth()
