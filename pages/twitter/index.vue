@@ -1,10 +1,6 @@
 <template>
   <div>
     <MainSection title="home" :loading="loading">
-      <Head>
-        <Title>Home / Twitter</Title>
-      </Head>
-
       <div class="border-b" :class="twitterBorderColor">
         <TweetForm
           v-if="user"
@@ -30,6 +26,10 @@ const { twitterBorderColor } = useTailwindConfig();
 
 definePageMeta({
   layout: 'twitter'
+})
+
+useHead({
+  title: 'Twitter | Home'
 })
 
 const { useAuthUser, useAuthLoading } = useAuth()

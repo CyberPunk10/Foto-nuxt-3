@@ -16,5 +16,9 @@
 </template>
 
 <script setup>
-import AuthForm from '~/components/Twitter/auth/AuthForm.vue'
+import AuthForm from '~/components/Twitter/auth/AuthForm.vue';
+
+useHead({
+  title: 'Twitter | Auth'
+})
 </script>

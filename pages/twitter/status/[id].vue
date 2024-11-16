@@ -1,10 +1,6 @@
 <template>
   <div>
     <MainSection title="Tweet" :loading="loading">
-      <Head>
-        <Title>Detail / Twitter</Title>
-      </Head>
-
       <TweetDetails :tweet="tweet" :user="user"/>
     </MainSection>
   </div>
@@ -16,6 +12,10 @@ import TweetDetails from '~/components/Twitter/tweet/TweetDetails.vue';
 
 definePageMeta({
   layout: 'twitter'
+})
+
+useHead({
+  title: 'Twitter | Detail'
 })
 
 function getTweetIdFromRoute() {
