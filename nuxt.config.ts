@@ -9,7 +9,6 @@ export default defineNuxtConfig({
       }
     ],
     '@nuxtjs/tailwindcss',
-    '@nuxt/eslint',
     '@nuxt/content',
     '@pinia/nuxt',
     // [
